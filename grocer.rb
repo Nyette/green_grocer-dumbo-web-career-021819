@@ -46,9 +46,7 @@ def checkout(cart, coupons)
   clearance_cart = apply_clearance(coupon_cart)
   total = 0
   clearance_cart.each do |item_name, price_hash|
-    price = price_hash[:price]
-    count = price_hash[:count]
-    total += price * count
+    total += price_hash[:price] * price_hash[:count]
   end
   if total > 100
     total * 0.9
