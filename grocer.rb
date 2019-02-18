@@ -21,7 +21,7 @@ def apply_coupons(cart, coupons)
       cart[item_name][:count] -= coupon_hash[:num]
       item_with_coupon_hash = {"#{item_name} W/COUPON" => {:price => coupon_hash[:cost], :clearance => cart[item_name][:clearance], :count => 1}}
       if cart["#{item_name} W/COUPON"].nil?
-        cart.merge!(item_with_coupon_hash)
+        cart["#{item_name} W/COUPON"] = 
       else
         cart["#{item_name} W/COUPON"][:count] += 1
       end
