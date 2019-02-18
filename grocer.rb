@@ -20,7 +20,7 @@ def apply_coupons(cart, coupons)
     if !cart[item_name].nil? && cart[item_name][:count] >= coupon_hash[:num]
       cart[item_name][:count] -= coupon_hash[:num]
       if cart["#{item_name} W/COUPON"].nil?
-        cart["#{item_name} W/COUPON"] = {:price => coupon_hash[:cost], :clearance => cart[item_name][:clearance], :count => 1}}
+        cart["#{item_name} W/COUPON"] = {:price => coupon_hash[:cost], :clearance => cart[item_name][:clearance], :count => 1}
       else
         cart["#{item_name} W/COUPON"][:count] += 1
       end
