@@ -18,13 +18,13 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon_hash|
     item_name = coupon_hash[:item]
     if !cart[item_name].nil? && cart[item_name][:count] >= coupon_hash[:num]
+      cart[item_name][:count] -= coupon_hash[:num]
       item_with_coupon_hash = {"#{item_name} W/COUPON" => {:price => coupon_hash[:cost], :clearance => cart[item_name][:clearance], :count => 1}}
       if cart["#{item_name} W/COUPON"].nil?
         cart.merge!(item_with_coupon_hash)
       else
         cart["#{item_name} W/COUPON"][:count] += 1
       end
-      cart[item_name][:count] -= coupon_hash[:num]
     end
   end
   cart
